@@ -7,10 +7,10 @@ services:
     container_name: stock_dashboard_db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: kakcsv3@dmin0609 # 請修改為您的 MariaDB Root 密碼
+      MYSQL_ROOT_PASSWORD: kakcsv3@Dmin0609
       MYSQL_DATABASE: stock_dashboard
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - mariadb_data:/var/lib/mysql
     networks:
@@ -26,7 +26,6 @@ services:
     depends_on:
       - mariadb
     environment:
-      # 資料庫連線字串 (使用容器內部名稱 mariadb)
       DATABASE_URL: "mysql+aiomysql://root:kakcsv3@Dmin0609@mariadb:3306/stock_dashboard"
     ports:
       - "8000:8000"
@@ -40,3 +39,4 @@ volumes:
 networks:
   stock_net:
     driver: bridge
+EOF
