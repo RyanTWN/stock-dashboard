@@ -1,13 +1,13 @@
+cat << 'EOF' > docker-compose.yml
 version: '3.8'
 
 services:
-  # 1. MariaDB 資料庫服務
   mariadb:
     image: mariadb:10.11
     container_name: stock_dashboard_db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: kakcsv3@Dmin0609
+      MYSQL_ROOT_PASSWORD: my_secure_password
       MYSQL_DATABASE: stock_dashboard
     ports:
       - "3307:3306"
@@ -16,7 +16,6 @@ services:
     networks:
       - stock_net
 
-  # 2. FastAPI 後端 API 服務
   backend:
     build:
       context: .
@@ -26,7 +25,7 @@ services:
     depends_on:
       - mariadb
     environment:
-      DATABASE_URL: "mysql+aiomysql://root:kakcsv3@Dmin0609@mariadb:3306/stock_dashboard"
+      DATABASE_URL: "mysql+aiomysql://root:my_secure_password@mariadb:3306/stock_dashboard"
     ports:
       - "8000:8000"
     networks:
