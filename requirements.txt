@@ -6,7 +6,7 @@ httpx>=0.27.0
 yfinance>=0.2.37
 cachetools>=5.3.3
 python-dotenv>=1.0.1
-PyMySQL-1.2.0 
-aiomysql-0.3.2 
-greenlet-3.5.5 
-sqlalchemy-2.0.52
+PyMySQL>=1.2.0 
+aiomysql>=0.3.2 
+greenlet>=3.5.5 
+sqlalchemy>=2.0.52
